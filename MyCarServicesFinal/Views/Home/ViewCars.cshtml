@@ -1,0 +1,61 @@
+﻿@model  MyCarServicesFinal.ViewModel.CustomerCarViewModel
+@{
+    ViewBag.Title = "ViewCars";
+}
+
+<h2>View Cars</h2>
+<div id="CustomerDetailsDiv">
+    <table class="table">
+        <tr>
+            <td>Name:</td>
+            <td><span>@Model.Customers.FirstName</span><span>@Model.Customers.LastName</span></td>
+        </tr>
+        <tr>
+            <td>Phone-number:</td>
+            <td>@Model.Customers.PhoneNumber</td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td>@Model.Customers.Address @Model.Customers.City @Model.Customers.PostalCode</td>
+        </tr>
+        <tr>
+            <td>Phone-number:</td>
+            <td>@Model.Customers.PhoneNumber</td>
+        </tr>
+    </table>
+</div>
+
+@Html.ActionLink("Add New Car", "AddNewCarForm", Model.Customers, new { @class = "btn" })
+
+<div id="CarDetailsDiv">
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>VIN</th>
+            <th>Model</th>
+            <th>Style</th>
+            <th>Company</th>
+            <th>Color</th>
+        </tr>
+        @foreach (var item in Model.Cars)
+        {
+            if (item.CustomerId == Model.Customers.Id)
+            {
+    <tr>
+        <td>@item.Id</td>
+        <td>@item.VIN</td>
+        <td>@item.Model</td>
+        <td>@item.Style</td>
+        <td>@item.Company</td>
+        <td>@item.Color</td>
+        <td>@Html.ActionLink(" ", "ViewServices", item, new { @class = "btn btn-danger fa-info-circle" })</td>
+        <td>@Html.ActionLink(" ", "EditCarForm", item, new { @class = "btn btn-danger fa fa-edit" })</td>
+        <td>@Html.ActionLink(" ", "DeleteCar", item, new { @class = "btn btn-danger fa fa-trash" })</td>
+    </tr>
+            }
+
+        }
+    </table>
+</div>
+
+

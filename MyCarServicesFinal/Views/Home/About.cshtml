@@ -1,0 +1,58 @@
+﻿@model  IEnumerable<MyCarServicesFinal.Models.Customer>
+@{
+    ViewBag.Title = "CUSTOMERS";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+@Html.ActionLink("New Customer", "AddCustomerForm", Model, new {@id="BtnAddCust", @class="btn btn-default" })
+<br />
+<div class="MyDiv" id="InfoTableDiv">
+    <table class="table" id="Customer">
+        <tbody>
+            <tr>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>PhoneNumber</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>PostalCode</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.PhoneNumber</td>
+                    <td>@item.Email</td>
+                    <td>@item.Address</td>
+                    <td>@item.City</td>
+                    <td>@item.PostalCode</td>
+                    <td>@Html.ActionLink(" ", "ViewCars", item, new { @class = "btn btn-danger fa-info-circle" })</td>
+                    <td>@Html.ActionLink(" ", "EditCustomerForm", item, new { @class = "btn btn-danger fa fa-edit" })</td>
+                    <td>@Html.ActionLink(" ", "DeleteCustomer", item, new { @class = "btn btn-danger fa fa-trash" })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+@*@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#customer .del-key').on('click', function () {
+                var button= $(this)
+                if (confirm("are you sure?")) {
+                   button.parents('tr').remove();
+                }
+            })
+            $('#customer .Add-key').on('click', function () {
+                var button = $(this)
+                button.parents('tr').add()
+
+            })
+
+        })
+    </script>
+    }*@
