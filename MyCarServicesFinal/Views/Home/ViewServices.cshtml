@@ -110,10 +110,13 @@
                 <div class="col-sm-2">
                     @item.ServiceType.ServiceName
                 </div>
+                <div>
+                    @Html.ActionLink(" ", "DeleteService", item, new { @class = "btn btn-danger fa fa-trash" })
+                </div>
 
             </div>
-
+            <div>@Html.ActionLink("Show Less", "ViewServices", Model.Car)</div>
                  }
-        }
+             }
     }
 </div>

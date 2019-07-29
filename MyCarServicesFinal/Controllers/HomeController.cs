@@ -168,6 +168,17 @@ namespace MyCarServicesFinal.Controllers
             return RedirectToAction("ViewServices","Home",car);
             
         }
+//delete service--------------------------------------------------------------------------------------
+        public ActionResult DeleteService(Service service)
+        {
+            var car = _context.Cars.Find(service.CarId);
+            var myService = _context.Services.Find(service.Id);
+
+            _context.Services.Remove(myService);
+            _context.SaveChanges();
+
+            return RedirectToAction("ViewServices", car);
+        }
     }
 
 }
