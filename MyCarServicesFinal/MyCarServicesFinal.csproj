@@ -195,6 +195,7 @@
     <Compile Include="Models\ServiceType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\CustAndCustViewModel.cs" />
     <Compile Include="ViewModel\CustomerCarViewModel.cs" />
     <Compile Include="ViewModel\ServiceViewModel.cs" />
     <Compile Include="ViewModel\SingleCustomerCarViewModel.cs" />
@@ -262,6 +263,7 @@
     <Content Include="Views\Home\EditCustomerForm.cshtml" />
     <Content Include="Views\Home\EditCarForm.cshtml" />
     <Content Include="Views\Home\ViewServices.cshtml" />
+    <Content Include="Views\Home\ShowMore.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

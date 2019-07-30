@@ -12,6 +12,5 @@ namespace MyCarServicesFinal.ViewModel
         public IEnumerable<Service> Services { get; set; }
         public Service Service { get; set; }
         public IEnumerable<ServiceType> ServiceType { get; set; }
-
     }
 }

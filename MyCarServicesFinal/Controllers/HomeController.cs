@@ -157,7 +157,7 @@ namespace MyCarServicesFinal.Controllers
             };
             return View(viewmodel);
         }
-//view services ----------------------------------------------------------------------------------
+        //view services ----------------------------------------------------------------------------------
         public ActionResult AddService(ServiceViewModel serviceViewModel)
         {
            serviceViewModel.Service.CarId = serviceViewModel.Car.Id;
@@ -168,7 +168,7 @@ namespace MyCarServicesFinal.Controllers
             return RedirectToAction("ViewServices","Home",car);
             
         }
-//delete service--------------------------------------------------------------------------------------
+        //delete service--------------------------------------------------------------------------------------
         public ActionResult DeleteService(Service service)
         {
             var car = _context.Cars.Find(service.CarId);
@@ -178,6 +178,59 @@ namespace MyCarServicesFinal.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("ViewServices", car);
+        }
+        //show More Services
+        // GET: Service
+        /* public ActionResult ShowMore(Car car)
+         {
+             var viewmodel = new ServiceViewModel
+             {
+                 Car = car,
+                 Services = _context.Services.ToList(),
+                 ServiceType = _context.ServiceTypes.ToList()
+             };
+             return View(viewmodel);
+         }*/
+        public ActionResult Search(string search = "", string option = "")
+        {
+            if (search.Equals(""))
+            {
+                var customers = _context.Customers.ToList();
+                return View("About", customers);
+            }
+            else
+            {
+                if (option.Equals("Email"))
+                {
+                    var customers = _context.Customers.Where(c => c.Email.Equals(search)).ToList();
+                    var viewModel = new CustAndCustViewModel
+                    {
+                        Customers = customers
+                    };
+                    return View("About",viewModel.Customers);
+                }
+
+                else if (option.Equals("Mobile"))
+                {
+                    var searchMobile = Convert.ToInt64(search);
+                    var customers = _context.Customers.Where(c => c.PhoneNumber.Equals(searchMobile)).ToList();
+                    var viewModel = new CustAndCustViewModel
+                    {
+                        Customers = customers
+                    };
+                    return View("About",viewModel.Customers);
+                }
+
+                else
+                {
+                    var customers = _context.Customers.Where(c => c.FirstName.Equals(search)).ToList();
+                    var viewModel = new CustAndCustViewModel
+                    {
+                        Customers = customers
+                    };
+                    return View("About",viewModel.Customers);
+                }
+            }
         }
     }
 

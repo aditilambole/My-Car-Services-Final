@@ -4,7 +4,31 @@
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
-@Html.ActionLink("New Customer", "AddCustomerForm", Model, new {@id="BtnAddCust", @class="btn btn-default" })
+
+<br />
+<table>
+    <tr>
+        <td>@Html.ActionLink("New Customer", "AddCustomerForm", Model, new { @id = "BtnAddCust", @class = "btn btn-default" })</td>
+    </tr>
+    @using (Html.BeginForm("Search", "Home", FormMethod.Get))
+    {
+        <tr>
+            <td>
+                @Html.RadioButton("option", "FirstName")First-Name
+                @Html.RadioButton("option", "Email")Email-Id
+                @Html.RadioButton("option", "Mobile")Mobile-No.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBox("search")
+            </td>
+        </tr>
+        <tr>
+            <td><button class="btn btn-primary" type="submit">Search</button></td>
+        </tr>
+    }
+</table>
 <br />
 <div class="MyDiv" id="InfoTableDiv">
     <table class="table" id="Customer">
