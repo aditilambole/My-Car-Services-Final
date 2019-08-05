@@ -1,4 +1,4 @@
-﻿@model  IEnumerable<MyCarServicesFinal.Models.Customer>
+﻿@model  IEnumerable<MyCarServicesFinal.Models.ApplicationUser>
 @{
     ViewBag.Title = "CUSTOMERS";
 }
@@ -6,33 +6,35 @@
 <h3>@ViewBag.Message</h3>
 
 <br />
-<table>
-    <tr>
-        <td>@Html.ActionLink("New Customer", "AddCustomerForm", Model, new { @id = "BtnAddCust", @class = "btn btn-default" })</td>
-    </tr>
-    @using (Html.BeginForm("Search", "Home", FormMethod.Get))
-    {
+
+<input id="myInput" type="text" placeholder="Search..">
+@*<table>
         <tr>
-            <td>
-                @Html.RadioButton("option", "FirstName")First-Name
-                @Html.RadioButton("option", "Email")Email-Id
-                @Html.RadioButton("option", "Mobile")Mobile-No.
-            </td>
+            <td>@Html.ActionLink("New Customer", "AddCustomerForm", Model, new { @id = "BtnAddCust", @class = "btn btn-default" })</td>
         </tr>
-        <tr>
-            <td>
-                @Html.TextBox("search")
-            </td>
-        </tr>
-        <tr>
-            <td><button class="btn btn-primary" type="submit">Search</button></td>
-        </tr>
-    }
-</table>
+        @using (Html.BeginForm("Search", "Home", FormMethod.Get))
+        {
+            <tr>
+                <td>
+                    @Html.RadioButton("option", "FirstName")First-Name
+                    @Html.RadioButton("option", "Email")Email-Id
+                    @Html.RadioButton("option", "Mobile")Mobile-No.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.TextBox("search")
+                </td>
+            </tr>
+            <tr>
+                <td><button class="btn btn-primary" type="submit">Search</button></td>
+            </tr>
+        }
+    </table>*@
 <br />
 <div class="MyDiv" id="InfoTableDiv">
     <table class="table" id="Customer">
-        <tbody>
+        <tbody id="myTable">
             <tr>
                 <th>FirstName</th>
                 <th>LastName</th>
@@ -49,9 +51,9 @@
                     <td>@item.LastName</td>
                     <td>@item.PhoneNumber</td>
                     <td>@item.Email</td>
-                    <td>@item.Address</td>
+                    @*<td>@item.Address</td>*@
                     <td>@item.City</td>
-                    <td>@item.PostalCode</td>
+                    @*<td>@item.PostalCode</td>*@
                     <td>@Html.ActionLink(" ", "ViewCars", item, new { @class = "btn btn-danger fa-info-circle" })</td>
                     <td>@Html.ActionLink(" ", "EditCustomerForm", item, new { @class = "btn btn-danger fa fa-edit" })</td>
                     <td>@Html.ActionLink(" ", "DeleteCustomer", item, new { @class = "btn btn-danger fa fa-trash" })</td>
@@ -80,3 +82,16 @@
         })
     </script>
     }*@
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+}

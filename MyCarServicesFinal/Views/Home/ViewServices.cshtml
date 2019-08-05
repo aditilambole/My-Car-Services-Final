@@ -42,96 +42,105 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Service.Miles)
         @Html.TextBoxFor(m => m.Service.Miles, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Service.Miles, "", new { @class = "text-danger" })
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Service.Price)
         @Html.TextBoxFor(m => m.Service.Price, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Service.Price, "", new { @class = "text-danger" })
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Service.Details)
         @Html.TextBoxFor(m => m.Service.Details, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Service.Details, "", new { @class = "text-danger" })
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.ServiceType)
         @Html.DropDownListFor(m => m.Service.ServiceTypeId, new SelectList(Model.ServiceType, "Id", "ServiceName"),
                                            "Select service type", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Service.ServiceTypeId, "", new { @class = "text-danger" })
     </div>
     @Html.HiddenFor(m => m.Car.Id)
+
+    @Html.HiddenFor(m => m.Car.Model)
+    @Html.HiddenFor(m => m.Car.Style)
+    @Html.HiddenFor(m => m.Car.VIN)
+    @Html.HiddenFor(m => m.Car.Company)
+    @Html.HiddenFor(m => m.Car.Color)
+
+    @Html.ValidationSummary()
     <button class="btn btn-primary" type="submit">Add Service</button>
 
 }
 @{int count = 0;}
-<div class="container">
-    <h1>Past Service Records</h1>
-    @*<button>@Html.ActionLink("Show More", "ShowMore", Model.Car)</button>*@
-    <button>click</button>
-    @if (!Model.Services.Any())
-    {
+    <div class="container">
+        <h1>Past Service Records</h1>
+        @*<button>@Html.ActionLink("Show More", "ShowMore", Model.Car)</button>*@
 
-        <div class="alert alert-light" role="alert">
-            No Services Yet!
-        </div>
-    }
-    else
-    {
-        if (count <= 5)
+        @if (!Model.Services.Any())
         {
-            <div class="row">
-                <div class="col-sm-2">
-                    <h4>Miles</h4>
-                </div>
-                <div class="col-sm-2">
-                    <h4>Prices</h4>
-                </div>
-                <div class="col-sm-2">
-                    <h4>Details</h4>
-                </div>
-                <div class="col-sm-2">
-                    <h4>Date Added</h4>
-                </div>
-                <div class="col-sm-2">
-                    <h4>Service-Type</h4>
-                </div>
-
+            <div class="alert alert-light" role="alert">
+                No Services Yet!
             </div>
-
-            foreach (var item in Model.Services)
+        }
+        else
+        {
+            if (count <= 5)
             {
-                if (item.CarId == Model.Car.Id)
-                {
-                    count++;
+                <div id="HideDiv" class="myHiddenObj" style="visibility:visible">
                     <div class="row">
                         <div class="col-sm-2">
-                            @item.Miles
+                            <h4>Miles</h4>
                         </div>
                         <div class="col-sm-2">
-                            @item.Price
+                            <h4>Prices</h4>
                         </div>
                         <div class="col-sm-2">
-                            @item.Details
+                            <h4>Details</h4>
                         </div>
                         <div class="col-sm-2">
-                            @item.DateAdded
+                            <h4>Date Added</h4>
                         </div>
                         <div class="col-sm-2">
-                            @item.ServiceType.ServiceName
+                            <h4>Service-Type</h4>
                         </div>
-                        @if (item.DateAdded == DateTime.Today)
-                        {
-                            <div>
-                                @Html.ActionLink(" ", "DeleteService", item, new { @class = "btn btn-danger fa fa-trash" })
-                            </div>
-                        }
-                    </div>
 
-                }
+                    </div>
+                    @foreach (var item in Model.Services)
+                    {
+                        if (item.CarId == Model.Car.Id)
+                        {
+                            count++;
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    @item.Miles
+                                </div>
+                                <div class="col-sm-2">
+                                    @item.Price
+                                </div>
+                                <div class="col-sm-2">
+                                    @item.Details
+                                </div>
+                                <div class="col-sm-2">
+                                    @item.DateAdded
+                                </div>
+                                <div class="col-sm-2">
+                                    @item.ServiceType.ServiceName
+                                </div>
+                                @if (item.DateAdded == DateTime.Today)
+                                {
+                                    <div>
+                                        @Html.ActionLink(" ", "DeleteService", item, new { @class = "btn btn-danger fa fa-trash" })
+                                    </div>
+                                }
+                            </div>
+
+                        }
+                    }
+                </div>
             }
 
-        }
-
-        if (count > 5)
-        {
-            <div class="MyhiddenObj" style="visibility:hidden">
+            <div id="showDiv" class="myHiddenObj" style="visibility:hidden">
                 <div class="row">
                     <div class="col-sm-2">
                         <h4>Miles</h4>
@@ -183,22 +192,23 @@
                     }
                 }
             </div>
-        }
-        //if (count >= 5)
-        //{
-        @*<div>@Html.ActionLink("Show More", "ShowMore", Model.Car)</div>*@
+            <button id="btnToggle">Show All</button>
 
-        //}
-    }
-</div>
+            //if (count >= 5)
+            //{
+            @*<div>@Html.ActionLink("Show More", "ShowMore", Model.Car)</div>*@
+
+            //}
+        }
+    </div>
 
 @section scripts{
     <script>
-        $(document).ready(function(){
-  $("button").click(function(){
-    $("div").toggleClass("MyhiddenObj");
-  });
-});
+        $(document).ready(function () {
+            $("#btnToggle").click(function() {
+                $("#showDiv").toggleClass("myHiddenObj");
+            });
+        });
     </script>
 }
 

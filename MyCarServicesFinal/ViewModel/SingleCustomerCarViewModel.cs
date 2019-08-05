@@ -9,6 +9,6 @@ namespace MyCarServicesFinal.ViewModel
     public class SingleCustomerCarViewModel
     {
         public Car GetCar { get; set; }
-        public Customer GetCustomer { get; set; }
+        public ApplicationUser User { get; set; }
     }
 }

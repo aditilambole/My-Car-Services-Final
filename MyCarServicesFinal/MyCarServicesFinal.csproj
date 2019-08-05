@@ -173,22 +173,37 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907250448332_allMigration.cs" />
-    <Compile Include="Migrations\201907250448332_allMigration.Designer.cs">
-      <DependentUpon>201907250448332_allMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201907310527267_allmigration.cs" />
+    <Compile Include="Migrations\201907310527267_allmigration.Designer.cs">
+      <DependentUpon>201907310527267_allmigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907250501295_allMigrationNew.cs" />
-    <Compile Include="Migrations\201907250501295_allMigrationNew.Designer.cs">
-      <DependentUpon>201907250501295_allMigrationNew.cs</DependentUpon>
+    <Compile Include="Migrations\201907310700368_UpdatedPhoneNo.cs" />
+    <Compile Include="Migrations\201907310700368_UpdatedPhoneNo.Designer.cs">
+      <DependentUpon>201907310700368_UpdatedPhoneNo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907251428212_updatedMigration.cs" />
-    <Compile Include="Migrations\201907251428212_updatedMigration.Designer.cs">
-      <DependentUpon>201907251428212_updatedMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201907310715522_UpdatedAllValidations.cs" />
+    <Compile Include="Migrations\201907310715522_UpdatedAllValidations.Designer.cs">
+      <DependentUpon>201907310715522_UpdatedAllValidations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908050653560_myUserRole.cs" />
+    <Compile Include="Migrations\201908050653560_myUserRole.Designer.cs">
+      <DependentUpon>201908050653560_myUserRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908050703495_DropForeignkeyMigration.cs" />
+    <Compile Include="Migrations\201908050703495_DropForeignkeyMigration.Designer.cs">
+      <DependentUpon>201908050703495_DropForeignkeyMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908050715528_AddForeignKey.cs" />
+    <Compile Include="Migrations\201908050715528_AddForeignKey.Designer.cs">
+      <DependentUpon>201908050715528_AddForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908050821346_DropCustomerModel.cs" />
+    <Compile Include="Migrations\201908050821346_DropCustomerModel.Designer.cs">
+      <DependentUpon>201908050821346_DropCustomerModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Car.cs" />
-    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Service.cs" />
@@ -282,14 +297,26 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201907250448332_allMigration.resx">
-      <DependentUpon>201907250448332_allMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907310527267_allmigration.resx">
+      <DependentUpon>201907310527267_allmigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907250501295_allMigrationNew.resx">
-      <DependentUpon>201907250501295_allMigrationNew.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907310700368_UpdatedPhoneNo.resx">
+      <DependentUpon>201907310700368_UpdatedPhoneNo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907251428212_updatedMigration.resx">
-      <DependentUpon>201907251428212_updatedMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907310715522_UpdatedAllValidations.resx">
+      <DependentUpon>201907310715522_UpdatedAllValidations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908050653560_myUserRole.resx">
+      <DependentUpon>201908050653560_myUserRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908050703495_DropForeignkeyMigration.resx">
+      <DependentUpon>201908050703495_DropForeignkeyMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908050715528_AddForeignKey.resx">
+      <DependentUpon>201908050715528_AddForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908050821346_DropCustomerModel.resx">
+      <DependentUpon>201908050821346_DropCustomerModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

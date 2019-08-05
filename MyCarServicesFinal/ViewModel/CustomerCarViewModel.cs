@@ -8,7 +8,7 @@ namespace MyCarServicesFinal.ViewModel
 {
     public class CustomerCarViewModel
     {
-        public Customer Customers { get; set; }
+        public ApplicationUser User { get; set; }
         public IEnumerable<Car> Cars { get; set; }
     }
 }
