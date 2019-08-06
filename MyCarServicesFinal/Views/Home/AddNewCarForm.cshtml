@@ -32,7 +32,7 @@
         @Html.TextBoxFor(m => m.GetCar.Color, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.GetCar.Color, "", new { @class = "text-danger" })
     </div>
-    @Html.HiddenFor(m => m.GetCustomer.Id)
+    @Html.HiddenFor(m => m.User.Id)
     
   
     <button class="btn btn-primary" type="submit">save</button>

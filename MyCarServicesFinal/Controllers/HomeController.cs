@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using MyCarServicesFinal;
 using MyCarServicesFinal.Models;
 using MyCarServicesFinal.ViewModel;
@@ -80,12 +81,25 @@ namespace MyCarServicesFinal.Controllers
         //Onclick - ShowCar------------------------------------------------------------------------------------
         public ActionResult ViewCars(ApplicationUser customer)
         {
+            var users = _context.Users.SingleOrDefault(c => c.Id == customer.Id);
             var viewmodel = new CustomerCarViewModel
             {
-                User = customer,
+                User = users,
                 Cars = _context.Cars.ToList()
             };
             return View(viewmodel);
+        }
+
+        public ActionResult ViewCarsUser(ApplicationUser customer)
+        {
+            var userId = User.Identity.GetUserId();
+            var users = _context.Users.SingleOrDefault(c => c.Id == userId);
+            var viewmodel = new CustomerCarViewModel
+            {
+                User = users,
+                Cars = _context.Cars.ToList()
+            };
+            return View("ViewCars", viewmodel);
         }
 
         public ActionResult AddNewCar(SingleCustomerCarViewModel viewModel)

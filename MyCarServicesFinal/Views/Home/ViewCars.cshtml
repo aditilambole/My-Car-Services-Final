@@ -8,24 +8,24 @@
     <table class="table">
         <tr>
             <td>Name:</td>
-            <td><span>@Model.Customers.FirstName</span><span>@Model.Customers.LastName</span></td>
+            <td><span>@Model.User.FirstName</span> <span>@Model.User.LastName</span></td>
         </tr>
         <tr>
             <td>Phone-number:</td>
-            <td>@Model.Customers.PhoneNumber</td>
+            <td>@Model.User.PhoneNumber</td>
         </tr>
         <tr>
-            <td>Address:</td>
-            <td>@Model.Customers.Address @Model.Customers.City @Model.Customers.PostalCode</td>
+            <td>Email:</td>
+            <td>@Model.User.Email</td>
         </tr>
         <tr>
-            <td>Phone-number:</td>
-            <td>@Model.Customers.PhoneNumber</td>
+            <td>City:</td>
+            <td>@Model.User.City</td>
         </tr>
     </table>
 </div>
 
-@Html.ActionLink("Add New Car", "AddNewCarForm", Model.Customers, new { @class = "btn" })
+@Html.ActionLink("Add New Car", "AddNewCarForm", Model.User, new { @class = "btn" })
 
 <div id="CarDetailsDiv">
     <table class="table">
@@ -39,7 +39,7 @@
         </tr>
         @foreach (var item in Model.Cars)
         {
-            if (item.CustomerId == Model.Customers.Id)
+            if (item.UserId == Model.User.Id)
             {
     <tr>
         <td>@item.Id</td>

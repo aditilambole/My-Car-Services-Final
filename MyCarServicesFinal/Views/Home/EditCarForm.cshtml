@@ -33,6 +33,6 @@
         @Html.ValidationMessageFor(m => m.Color, "", new { @class = "text-danger" })
     </div>
     @Html.HiddenFor(m => m.Id)
-    @Html.HiddenFor(m => m.CustomerId)
+    @Html.HiddenFor(m => m.UserId)
     <button class="btn btn-primary" type="submit">save</button>
 }

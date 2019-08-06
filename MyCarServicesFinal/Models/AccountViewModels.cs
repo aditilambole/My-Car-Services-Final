@@ -64,6 +64,22 @@ namespace MyCarServicesFinal.Models
 
     public class RegisterViewModel
     {
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Please enter name")]
+        [StringLength(20, MinimumLength = 3, ErrorMessage = "Name should be of minimum 3 characters maximum 20 characters")]
+        [RegularExpression(@"^([A-Za-z]+)", ErrorMessage = "Enter valid first name")]
+        public string FirstName { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Please enter lastname")]
+        [StringLength(20, MinimumLength = 3, ErrorMessage = "lastname should be of minimum 3 characters maximum 20 characters")]
+        [RegularExpression(@"^([A-Za-z]+)", ErrorMessage = "Enter valid last name")]
+        public string LastName { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Please enter City")]
+        public string City { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Please enter Phone-number")]
+        public string PhoneNumber { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
