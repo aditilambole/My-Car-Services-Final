@@ -7,40 +7,251 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+  <style>
+      .social-link {
+    width: 30%;
+    float: left;
+}
+    .social-link li{
+    display: table-cell;
+    vertical-align: middle;
+}
+    .social-link a {
+    color: #c6d4e0;
+    text-decoration: none;
+    padding: 8px;
+}
+    .social-link a:hover {
+    color: #c6d4e0;
+    background-color:#7dc3ffb5;
+    border-radius: 100px;
+}
+    .social-link ul {
+    margin-top: 18px;
+    margin-bottom: 10px;
+    padding-left: 7px;
+}
+    .NavAside {
+    text-align: right;
+    display: table-cell;
+    vertical-align: middle;
+    float: right;
+    margin-top: -32px;
+    color: #9c9d9ee6;
+    padding-left: -1px;
+}
+    .NavAside span {
+    padding: 10px;
+}
+    .NavAside span:hover {
+    color:white;
+}
+    .navbar-header {
+    width: 100%;
+}
+    .NavAside span a{
+        text-decoration:none;
+        color:#9c9d9ee6;
+    }
+    #mainLogo{
+    width: 187px;
+    height: 60px;
+}
+    .social-link.col-md-1 {
+    padding-left: 0px;
+}
+    nav.width-navigation.table-cell.table-right.col-md-5.col-md-offset-4 {
+    margin-top: 28px;
+}
+   
+    .main-menu {
+    background-color: rgba(255, 255, 255, 0.45);
+    position: fixed;
+    /* left: 83px; */
+    top: 49px;
+}
+   
+
+    </style>
 
 </head>
 <body>
+    <!--Mycode-----Navbar-top-->
     <div class="navbar navbar-inverse navbar-fixed-top">
+        @**@
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Car Services", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    @if (ViewContext.HttpContext.User.IsInRole("Admin"))
-                    {
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Customers", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    }
-                    else
-                    {
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        <li>@Html.ActionLink("Your Details", "ViewCarsUser", "Home")</li>
-                    }
+                <div class="social-link col-md-1">
+                    <ul>
+                        <li>
+                            <a href="http://www.facebook.com/reppsgarage">
+                                <i class="fa fa-facebook fa-lg">
 
-                </ul>
-                @Html.Partial("_LoginPartial")
+                                </i>
+
+                            </a>
+
+                        </li>
+                        <li>
+
+                            <a href="http://www.instagram.com/reppsgarage/">
+                                <i class="fa fa-instagram fa-lg">
+
+                                </i>
+
+                            </a>
+
+                        </li>
+                    </ul>
+
+                </div>
+                <aside id="thim_info-2" class="NavAside col-lg-8 col-lg-offset-2">
+                    <span class="address">
+                        <i class="fa fa-map-marker"></i>
+                        MIDC, Kharadi, off Nagar Pune
+                    </span>
+                    <span class="phone"><i class="fa fa-phone"></i>020-6607 4000</span>
+                    <span class="email">
+                        <i class="fa fa-envelope-o"></i><a href="hello@zenrage.co.in">hello@zenrage.co.in</a>
+                    </span><span class="time">
+                        <i class="fa fa-clock-o"></i>
+                        <span class="day">Mon-Fri:  24/7 Service</span>
+                    </span>
+                </aside>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="MainMenuCover">
+        <div class="main-menu navbar-fixed-top">
+            @**@
+            <div class="container">
+                <div class="row">
+                    <div class="navigation col-sm-12">
+                        <div class="tm-table">
+                            <div class="menu-mobile-effect navbar-toggle" data-effect="mobile-effect">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </div>
+                            <div class="width-logo table-cell sm-logo col-md-3">
+                                <h1>
+                                    <a class="no-sticky-logo" href="http://www.reppsgarage.co.uk/" title="ZenGarage | MOT | Servicing | Repairs - Automotive expertise you can trust..." rel="home">
+                                        <img src="~/myImages/Logos_zenedge.png" alt="Zenrage | MOT | Servicing | Repairs" id="mainLogo" />
+                                    </a>
+                                    @*<a class="sticky-logo" href="http://www.reppsgarage.co.uk/" title="Repps Garage | MOT | Servicing | Repairs - Automotive expertise you can trust..." rel="home">
+                                    <img src="http://www.reppsgarage.co.uk/wp-content/themes/garage/images/sticky-logo.png" alt="Repps Garage | MOT | Servicing | Repairs" width="128" height="27" />
+                                </a>*@
+                                </h1>
+                            </div>
+                            <nav class="width-navigation table-cell table-right col-md-5 col-md-offset-4">
+                                <div class="inner-navigation container">
+                                    <ul class="nav navbar-nav fixed-top menu-main-menu">
+                                        @if (ViewContext.HttpContext.User.IsInRole("Admin"))
+                                        {
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-14 current_page_item drop_to_right standard">
+                                                @Html.ActionLink("Home", "Index", "Home")
+                                            </li>
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-14 current_page_item drop_to_right standard">
+                                                @Html.ActionLink("Customers", "About", "Home")
+                                            </li>
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-14 current_page_item drop_to_right standard">
+                                                @Html.ActionLink("Contact", "Contact", "Home")
+                                            </li>
+
+                                        }
+                                        else
+                                        {
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-14 current_page_item drop_to_right standard">
+
+                                                @Html.ActionLink("Home", "Index", "Home")
+                                            </li>
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-14 current_page_item drop_to_right standard">
+                                                @Html.ActionLink("Contact", "Contact", "Home")
+                                            </li>
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-14 current_page_item drop_to_right standard">
+                                                @Html.ActionLink("Your Details", "ViewCarsUser", "Home")
+                                            </li>
+
+                                        }
+                                        @Html.Partial("_LoginPartial")
+
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children drop_to_right standard">
+                                            <a href="http://www.reppsgarage.co.uk/services/"><span data-hover="Services">Services</span></a>
+                                            @*<ul class="sub-menu">
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://www.reppsgarage.co.uk/services/mot/"><i class="fa fa-fw fa-ambulance"></i> MOT testing</a></li>
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://www.reppsgarage.co.uk/services/servicing/"><i class="fa fa-fw fa-tint"></i> Servicing</a></li>
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://www.reppsgarage.co.uk/services/diagnostics/"><i class="fa fa-fw fa-tachometer"></i> Vehicle diagnostics</a></li>
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://www.reppsgarage.co.uk/services/aircon/"><i class="fa fa-fw fa-cloud"></i> Air conditioning</a></li>
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://www.reppsgarage.co.uk/services/repairs/"><i class="fa fa-fw fa-ge"></i> General repairs</a></li>
+                                        </ul>*@
+                                        </li>
+
+                                    </ul>
+
+                                    @*<div class="menu-right">
+                                    <div id="search-5" class="widget widget_search">
+                                        <div class="thim-widget-search thim-widget-search-base">
+                                            <div class="thim_search">
+                                                <form method="get" action="http://www.reppsgarage.co.uk/">
+                                                    <a href="#" class="button_search"><i class="fa fa-search"></i></a>
+                                                    <div class="search_field">
+                                                        <div class="search_item">
+                                                            <input type="text" value="" name="s" placeholder="Search for..."
+                                                                   class="thim_s form_control thim_search_input" autocomplete="off" />
+                                                            <span class="close_form"><i class="fa fa-times"></i></span>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>*@
+                                </div>
+                            </nav>
+                        </div>
+                        <!--end .row-->
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    
+    
+
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Car Services", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        @if (ViewContext.HttpContext.User.IsInRole("Admin"))
+                        {
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Customers", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("Your Details", "ViewCarsUser", "Home")</li>
+                        }
+
+
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>*@
+    <div class="container body-content" style="padding-left:0px; padding-right:0px">
         @RenderBody()
         <hr />
         <footer>

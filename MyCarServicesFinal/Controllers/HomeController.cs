@@ -89,7 +89,7 @@ namespace MyCarServicesFinal.Controllers
             };
             return View(viewmodel);
         }
-
+        [Authorize]
         public ActionResult ViewCarsUser(ApplicationUser customer)
         {
             var userId = User.Identity.GetUserId();
