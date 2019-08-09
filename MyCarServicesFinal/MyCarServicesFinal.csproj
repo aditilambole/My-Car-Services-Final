@@ -227,6 +227,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="myImages\asphalt-automobile-automotive-425170.jpg" />
     <Content Include="myImages\Logos_zenedge.png" />
+    <Content Include="myImages\multi-storey-car-park-2705368_960_720.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />

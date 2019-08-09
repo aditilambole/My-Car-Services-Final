@@ -8,11 +8,8 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
   <style>
-      .social-link {
-    width: 30%;
-    float: left;
-}
-    .social-link li{
+     
+.social-link li{
     display: table-cell;
     vertical-align: middle;
 }
@@ -46,7 +43,7 @@
     .NavAside span:hover {
     color:white;
 }
-    .navbar-header {
+   .navbar-header {
     width: 100%;
 }
     .NavAside span a{
@@ -57,31 +54,55 @@
     width: 187px;
     height: 60px;
 }
-    .social-link.col-md-1 {
-    padding-left: 0px;
+    
+  .navigation.col-md-12 {
+    top: 50px;
+    background-color: #0000001f;
+    padding-right: 30px;
+    padding-left: 50px;
 }
-    nav.width-navigation.table-cell.table-right.col-md-5.col-md-offset-4 {
-    margin-top: 28px;
+  .container.navbar-fixed-top.myNav {
+    margin: 0px;
+    width: 100%;
 }
-   
-    .main-menu {
-    background-color: rgba(255, 255, 255, 0.45);
-    position: fixed;
-    /* left: 83px; */
-    top: 49px;
+  .Top-Header-Container {
+    margin: 0;
 }
-   
-
+  .Top-Header {
+    margin-left: 36px;
+}
+  .social-link {
+    margin-left: 37px;
+}
+  .mainImg{
+      background-image:url('../../myImages/multi-storey-car-park-2705368_960_720.jpg');
+      height:500px;
+      background-repeat:no-repeat;
+      background-size:cover;
+  }
+  div#backImgDiv {
+    margin-left: -100px;
+    margin-right: -100px;
+}
+  .mainImg {
+    margin-top: 50px;
+}
+  ul.nav.navbar-nav.fixed-top.menu-main-menu {
+    margin-top: 24px;
+    font-weight: 900;
+    font-size: 16px;
+    font-family: unset;
+}
+  
     </style>
 
 </head>
 <body>
     <!--Mycode-----Navbar-top-->
     <div class="navbar navbar-inverse navbar-fixed-top">
-        @**@
-        <div class="container">
-            <div class="navbar-header">
-                <div class="social-link col-md-1">
+        <div class="container Top-Header-Container">
+            <div class="navbar-header Top-Header">
+                <div class="social-link">
                     <ul>
                         <li>
                             <a href="http://www.facebook.com/reppsgarage">
@@ -119,16 +140,11 @@
                     </span>
                 </aside>
             </div>
-
         </div>
-    </div>
-
-    <div class="MainMenuCover">
         <div class="main-menu navbar-fixed-top">
-            @**@
-            <div class="container">
+            <div class="container navbar-fixed-top myNav">
                 <div class="row">
-                    <div class="navigation col-sm-12">
+                    <div class="navigation col-md-12">
                         <div class="tm-table">
                             <div class="menu-mobile-effect navbar-toggle" data-effect="mobile-effect">
                                 <span class="icon-bar"></span>
@@ -140,12 +156,10 @@
                                     <a class="no-sticky-logo" href="http://www.reppsgarage.co.uk/" title="ZenGarage | MOT | Servicing | Repairs - Automotive expertise you can trust..." rel="home">
                                         <img src="~/myImages/Logos_zenedge.png" alt="Zenrage | MOT | Servicing | Repairs" id="mainLogo" />
                                     </a>
-                                    @*<a class="sticky-logo" href="http://www.reppsgarage.co.uk/" title="Repps Garage | MOT | Servicing | Repairs - Automotive expertise you can trust..." rel="home">
-                                    <img src="http://www.reppsgarage.co.uk/wp-content/themes/garage/images/sticky-logo.png" alt="Repps Garage | MOT | Servicing | Repairs" width="128" height="27" />
-                                </a>*@
+
                                 </h1>
                             </div>
-                            <nav class="width-navigation table-cell table-right col-md-5 col-md-offset-4">
+                            <nav class="width-navigation table-cell table-right col-md-3 col-md-offset-2">
                                 <div class="inner-navigation container">
                                     <ul class="nav navbar-nav fixed-top menu-main-menu">
                                         @if (ViewContext.HttpContext.User.IsInRole("Admin"))
@@ -179,88 +193,32 @@
 
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children drop_to_right standard">
                                             <a href="http://www.reppsgarage.co.uk/services/"><span data-hover="Services">Services</span></a>
-                                            @*<ul class="sub-menu">
-                                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://www.reppsgarage.co.uk/services/mot/"><i class="fa fa-fw fa-ambulance"></i> MOT testing</a></li>
-                                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://www.reppsgarage.co.uk/services/servicing/"><i class="fa fa-fw fa-tint"></i> Servicing</a></li>
-                                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://www.reppsgarage.co.uk/services/diagnostics/"><i class="fa fa-fw fa-tachometer"></i> Vehicle diagnostics</a></li>
-                                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://www.reppsgarage.co.uk/services/aircon/"><i class="fa fa-fw fa-cloud"></i> Air conditioning</a></li>
-                                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://www.reppsgarage.co.uk/services/repairs/"><i class="fa fa-fw fa-ge"></i> General repairs</a></li>
-                                        </ul>*@
-                                        </li>
 
                                     </ul>
 
-                                    @*<div class="menu-right">
-                                    <div id="search-5" class="widget widget_search">
-                                        <div class="thim-widget-search thim-widget-search-base">
-                                            <div class="thim_search">
-                                                <form method="get" action="http://www.reppsgarage.co.uk/">
-                                                    <a href="#" class="button_search"><i class="fa fa-search"></i></a>
-                                                    <div class="search_field">
-                                                        <div class="search_item">
-                                                            <input type="text" value="" name="s" placeholder="Search for..."
-                                                                   class="thim_s form_control thim_search_input" autocomplete="off" />
-                                                            <span class="close_form"><i class="fa fa-times"></i></span>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>*@
                                 </div>
                             </nav>
+
                         </div>
-                        <!--end .row-->
+                    </div>
+                    <div data-vc-full-width="true" data-vc-full-width-init="true" class="vc_row wpb_row vc_row-fluid appointment" >
+                    </div>
+                        <div class="container body-content" style="padding-left:0px; padding-right:0px">
+                            @RenderBody()
+                            <hr />
+                            <footer>
+                                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                            </footer>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+</div>
     </div>
-    
-    
+       
+            @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/bootstrap")
+            @RenderSection("scripts", required: false)
 
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Car Services", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        @if (ViewContext.HttpContext.User.IsInRole("Admin"))
-                        {
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("Customers", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        }
-                        else
-                        {
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                            <li>@Html.ActionLink("Your Details", "ViewCarsUser", "Home")</li>
-                        }
-
-
-                    </ul>
-                    @Html.Partial("_LoginPartial")
-                </div>
-            </div>
-        </div>*@
-    <div class="container body-content" style="padding-left:0px; padding-right:0px">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+       
 </body>
 </html>
