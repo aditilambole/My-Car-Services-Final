@@ -2,66 +2,70 @@
 @{
     ViewBag.Title = "CUSTOMERS";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+    <div class="aboutdiv">
+        <h2>@ViewBag.Title.</h2>
+        <h3>@ViewBag.Message</h3>
 
-<br />
+        <br />
 
-<input id="myInput" type="text" placeholder="Search..">
-@*<table>
-        <tr>
-            <td>@Html.ActionLink("New Customer", "AddCustomerForm", Model, new { @id = "BtnAddCust", @class = "btn btn-default" })</td>
-        </tr>
-        @using (Html.BeginForm("Search", "Home", FormMethod.Get))
-        {
+        <input id="myInput" type="text" placeholder="Search..">
+        @*<table>
             <tr>
-                <td>
-                    @Html.RadioButton("option", "FirstName")First-Name
-                    @Html.RadioButton("option", "Email")Email-Id
-                    @Html.RadioButton("option", "Mobile")Mobile-No.
-                </td>
+                <td>@Html.ActionLink("New Customer", "AddCustomerForm", Model, new { @id = "BtnAddCust", @class = "btn btn-default" })</td>
             </tr>
-            <tr>
-                <td>
-                    @Html.TextBox("search")
-                </td>
-            </tr>
-            <tr>
-                <td><button class="btn btn-primary" type="submit">Search</button></td>
-            </tr>
-        }
-    </table>*@
-<br />
-<div class="MyDiv" id="InfoTableDiv">
-    <table class="table" id="Customer">
-        <tbody id="myTable">
-            <tr>
-                <th>FirstName</th>
-                <th>LastName</th>
-                <th>PhoneNumber</th>
-                <th>Email</th>
-                @*<th>Address</th>*@
-                <th>City</th>
-                @*<th>PostalCode</th>*@
-            </tr>
-            @foreach (var item in Model)
+            @using (Html.BeginForm("Search", "Home", FormMethod.Get))
             {
                 <tr>
-                    <td>@item.FirstName</td>
-                    <td>@item.LastName</td>
-                    <td>@item.PhoneNumber</td>
-                    <td>@item.Email</td>
-                    @*<td>@item.Address</td>*@
-                    <td>@item.City</td>
-                    @*<td>@item.PostalCode</td>*@
-                    <td>@Html.ActionLink(" ", "ViewCars", item, new { @class = "btn btn-danger fa-info-circle" })</td>
-                    <td>@Html.ActionLink(" ", "EditCustomerForm", item, new { @class = "btn btn-danger fa fa-edit" })</td>
-                    <td>@Html.ActionLink(" ", "DeleteCustomer", item, new { @class = "btn btn-danger fa fa-trash" })</td>
+                    <td>
+                        @Html.RadioButton("option", "FirstName")First-Name
+                        @Html.RadioButton("option", "Email")Email-Id
+                        @Html.RadioButton("option", "Mobile")Mobile-No.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.TextBox("search")
+                    </td>
+                </tr>
+                <tr>
+                    <td><button class="btn btn-primary" type="submit">Search</button></td>
                 </tr>
             }
-        </tbody>
-    </table>
-</div>
+        </table>*@
+        <br />
+        <div class="container aboutdiv">
+            <div class="MyDiv" id="InfoTableDiv">
+                <table class="table" id="Customer">
+                    <tbody id="myTable">
+                        <tr>
+                            <th>FirstName</th>
+                            <th>LastName</th>
+                            <th>PhoneNumber</th>
+                            <th>Email</th>
+                            @*<th>Address</th>*@
+                            <th>City</th>
+                            @*<th>PostalCode</th>*@
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.FirstName</td>
+                                <td>@item.LastName</td>
+                                <td>@item.PhoneNumber</td>
+                                <td>@item.Email</td>
+                                @*<td>@item.Address</td>*@
+                                <td>@item.City</td>
+                                @*<td>@item.PostalCode</td>*@
+                                <td>@Html.ActionLink(" ", "ViewCars", item, new { @class = "btn btn-danger fa-info-circle" })</td>
+                                <td>@Html.ActionLink(" ", "EditCustomerForm", item, new { @class = "btn btn-danger fa fa-edit" })</td>
+                                <td>@Html.ActionLink(" ", "DeleteCustomer", item, new { @class = "btn btn-danger fa fa-trash" })</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
 
 @*@section scripts{

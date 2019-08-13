@@ -54,7 +54,6 @@
     width: 187px;
     height: 60px;
 }
-    
   .navigation.col-md-12 {
     top: 50px;
     background-color: #0000001f;
@@ -93,11 +92,80 @@
     font-size: 16px;
     font-family: unset;
 }
-  
+  .slideInLeft {
+    display: inline-block;
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+    text-transform: capitalize;
+    padding: 50px 90px 30px 90px;
+    font-weight: bold;
+    position: relative;
+    top: 120px;
+    left: 68px;
+    font-family: -webkit-pictograph;
+}
+  span#slideInLeftSpan1 {
+    font-size: 60px;
+}
+  span#slideInLeftSpan2 {
+    font-size: 40px;
+}
+  spanBtn{
+       color: #ffffff;
+    background-color: rgba(153,153,153,0.01);
+    border-color: #ffffff;
+    border-width: 2px;
+    text-align: center;
+  }
+  .thim-button--rayen {
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+}
+  .thim-button--border-thick {
+    border: 3px solid;
+}
+.thim-button--border-thick {
+          border: 3px solid;
+      }
+.thim-button {
+    float: left;
+    display: block;
+    padding: 0.5em 2em;
+    border: none;
+    background: none;
+    color: inherit;
+    vertical-align: middle;
+    position: relative;
+    z-index: 1;
+    -webkit-backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+  /*.anchorNav:hover{
+    border-bottom: 5px solid #9e2727;
+    padding-bottom: 0px;
+}*/
+  .BluePart.container {
+    background-color: #065fd2;
+}
+  .aboutdiv {
+       margin-top: 150px
+}
+  .thim-button--rayen .before, .thim-button--rayen > span {
+    padding: 0.5em 2em;
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+    -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+    transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+}
+  body{
+        overflow-y:auto
+  }
     </style>
 
 </head>
-<body>
+<body style="overflow-x:auto">
     <!--Mycode-----Navbar-top-->
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container Top-Header-Container">
@@ -165,13 +233,13 @@
                                         @if (ViewContext.HttpContext.User.IsInRole("Admin"))
                                         {
                                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-14 current_page_item drop_to_right standard">
-                                                @Html.ActionLink("Home", "Index", "Home")
+                                                @Html.ActionLink("Home", "Index", "Home", " ",new { @class = "anchorNav "})
                                             </li>
                                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-14 current_page_item drop_to_right standard">
-                                                @Html.ActionLink("Customers", "About", "Home")
+                                                @Html.ActionLink("Customers", "About", "Home","", new { @class = "anchorNav "})
                                             </li>
                                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-14 current_page_item drop_to_right standard">
-                                                @Html.ActionLink("Contact", "Contact", "Home")
+                                                @Html.ActionLink("Contact", "Contact", "Home","", new { @class = "anchorNav "})
                                             </li>
 
                                         }
@@ -179,21 +247,21 @@
                                         {
                                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-14 current_page_item drop_to_right standard">
 
-                                                @Html.ActionLink("Home", "Index", "Home")
+                                                @Html.ActionLink("Home", "Index", "Home", "",new { @class = "anchorNav "})
                                             </li>
                                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-14 current_page_item drop_to_right standard">
-                                                @Html.ActionLink("Contact", "Contact", "Home")
+                                                @Html.ActionLink("Contact", "Contact", "Home","", new { @class = "anchorNav "})
                                             </li>
                                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-14 current_page_item drop_to_right standard">
-                                                @Html.ActionLink("Your Details", "ViewCarsUser", "Home")
+                                                @Html.ActionLink("Your Details", "ViewCarsUser", "Home","", new { @class = "anchorNav "})
                                             </li>
 
                                         }
                                         @Html.Partial("_LoginPartial")
 
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children drop_to_right standard">
-                                            <a href="http://www.reppsgarage.co.uk/services/"><span data-hover="Services">Services</span></a>
-
+                                        @*<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children drop_to_right standard">
+                                            <a href="http://www.reppsgarage.co.uk/services/" class="anchorNav"><span data-hover="Services">Services</span></a>*@
+                                            
                                     </ul>
 
                                 </div>
@@ -207,7 +275,33 @@
                             @RenderBody()
                             <hr />
                             <footer>
-                                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                                <div class="navbar-header Top-Header">
+                                    <div class="social-link">
+                                        <ul>
+                                            <li>
+                                                <a href="http://www.facebook.com/reppsgarage">
+                                                    <i class="fa fa-facebook fa-lg">
+
+                                                    </i>
+
+                                                </a>
+
+                                            </li>
+                                            <li>
+
+                                                <a href="http://www.instagram.com/reppsgarage/">
+                                                    <i class="fa fa-instagram fa-lg">
+
+                                                    </i>
+
+                                                </a>
+
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                                    <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
                             </footer>
                         </div>
                     </div>

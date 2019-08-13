@@ -1,0 +1,19 @@
+﻿body {
+    overflow-x: hidden
+}
+
+.slideInLeft {
+    animation-name: slideInLeft;
+    animation-fill-mode: both;
+    animation-duration: 2s
+}
+
+@keyframes slideInLeft{
+    from {
+        transform: rotate(180deg);
+        visibility: visible
+    }
+    to{
+        transform:translateX(0)
+    }
+}
