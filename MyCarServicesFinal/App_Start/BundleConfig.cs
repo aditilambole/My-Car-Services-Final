@@ -25,7 +25,8 @@ namespace MyCarServicesFinal
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
-                      "~/Content/AboutPage.css"));
+                      "~/Content/AboutPage.css",
+                      "~/Content/translation.css"));
         }
     }
 }

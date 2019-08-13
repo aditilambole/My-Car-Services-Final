@@ -1,78 +1,79 @@
-﻿@model  MyCarServicesFinal.ViewModel.ServiceViewModel
-@{
-    ViewBag.Title = "View Services";
-}
+﻿<div class="aboutdiv">
+    @model  MyCarServicesFinal.ViewModel.ServiceViewModel
+    @{
+        ViewBag.Title = "View Services";
+    }
 
-<h2>View Services</h2>
-<div class="container" style="color:aqua">
-    <div class="row">
-        <div class="col-sm-3">
-            <h3>Company</h3>
+    <h2>View Services</h2>
+    <div class="container" style="color:aqua">
+        <div class="row">
+            <div class="col-sm-3">
+                <h3>Company</h3>
+            </div>
+            <div class="col-sm-3">
+                <h3>Model</h3>
+            </div>
+            <div class="col-sm-3">
+                <h3>Style</h3>
+            </div>
+            <div class="col-sm-3">
+                <h3>color</h3>
+            </div>
         </div>
-        <div class="col-sm-3">
-            <h3>Model</h3>
-        </div>
-        <div class="col-sm-3">
-            <h3>Style</h3>
-        </div>
-        <div class="col-sm-3">
-            <h3>color</h3>
+        <div class="row">
+            <div class="col-sm-3">
+                @Model.Car.Company
+            </div>
+            <div class="col-sm-3">
+                @Model.Car.Model
+            </div>
+            <div class="col-sm-3">
+                @Model.Car.Style
+            </div>
+            <div class="col-sm-3">
+                @Model.Car.Color
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-3">
-            @Model.Car.Company
+
+    <h2>Add Services</h2>
+
+    @using (Html.BeginForm("AddService", "Home"))//action method ka nam create hoyga
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.Service.Miles)
+            @Html.TextBoxFor(m => m.Service.Miles, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Service.Miles, "", new { @class = "text-danger" })
         </div>
-        <div class="col-sm-3">
-            @Model.Car.Model
+        <div class="form-group">
+            @Html.LabelFor(m => m.Service.Price)
+            @Html.TextBoxFor(m => m.Service.Price, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Service.Price, "", new { @class = "text-danger" })
         </div>
-        <div class="col-sm-3">
-            @Model.Car.Style
+        <div class="form-group">
+            @Html.LabelFor(m => m.Service.Details)
+            @Html.TextBoxFor(m => m.Service.Details, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Service.Details, "", new { @class = "text-danger" })
         </div>
-        <div class="col-sm-3">
-            @Model.Car.Color
+        <div class="form-group">
+            @Html.LabelFor(m => m.ServiceType)
+            @Html.DropDownListFor(m => m.Service.ServiceTypeId, new SelectList(Model.ServiceType, "Id", "ServiceName"),
+                                               "Select service type", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Service.ServiceTypeId, "", new { @class = "text-danger" })
         </div>
-    </div>
-</div>
+        @Html.HiddenFor(m => m.Car.Id)
 
-<h2>Add Services</h2>
+        @Html.HiddenFor(m => m.Car.Model)
+        @Html.HiddenFor(m => m.Car.Style)
+        @Html.HiddenFor(m => m.Car.VIN)
+        @Html.HiddenFor(m => m.Car.Company)
+        @Html.HiddenFor(m => m.Car.Color)
 
-@using (Html.BeginForm("AddService", "Home"))//action method ka nam create hoyga
-{
-    <div class="form-group">
-        @Html.LabelFor(m => m.Service.Miles)
-        @Html.TextBoxFor(m => m.Service.Miles, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Service.Miles, "", new { @class = "text-danger" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Service.Price)
-        @Html.TextBoxFor(m => m.Service.Price, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Service.Price, "", new { @class = "text-danger" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Service.Details)
-        @Html.TextBoxFor(m => m.Service.Details, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Service.Details, "", new { @class = "text-danger" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ServiceType)
-        @Html.DropDownListFor(m => m.Service.ServiceTypeId, new SelectList(Model.ServiceType, "Id", "ServiceName"),
-                                           "Select service type", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Service.ServiceTypeId, "", new { @class = "text-danger" })
-    </div>
-    @Html.HiddenFor(m => m.Car.Id)
+        @Html.ValidationSummary()
+        <button class="btn btn-primary" type="submit">Add Service</button>
 
-    @Html.HiddenFor(m => m.Car.Model)
-    @Html.HiddenFor(m => m.Car.Style)
-    @Html.HiddenFor(m => m.Car.VIN)
-    @Html.HiddenFor(m => m.Car.Company)
-    @Html.HiddenFor(m => m.Car.Color)
-
-    @Html.ValidationSummary()
-    <button class="btn btn-primary" type="submit">Add Service</button>
-
-}
-@{int count = 0;}
+    }
+    @{int count = 0;}
     <div class="container">
         <h1>Past Service Records</h1>
         @*<button>@Html.ActionLink("Show More", "ShowMore", Model.Car)</button>*@
@@ -192,7 +193,7 @@
                     }
                 }
             </div>
-            <button id="btnToggle">Show All</button>
+            @*<button id="btnToggle">Show All</button>*@
 
             //if (count >= 5)
             //{
@@ -201,14 +202,14 @@
             //}
         }
     </div>
-
-@section scripts{
-    <script>
-        $(document).ready(function () {
-            $("#btnToggle").click(function() {
-                $("#showDiv").toggleClass("myHiddenObj");
+</div>
+    @section scripts{
+        <script>
+            $(document).ready(function () {
+                $("#btnToggle").click(function () {
+                    $("#showDiv").toggleClass("myHiddenObj");
+                });
             });
-        });
-    </script>
-}
+        </script>
+    }
 

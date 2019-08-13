@@ -1,61 +1,73 @@
-﻿@model  MyCarServicesFinal.ViewModel.CustomerCarViewModel
-@{
-    ViewBag.Title = "ViewCars";
-}
+﻿<div class="aboutdiv">
+    @model  MyCarServicesFinal.ViewModel.CustomerCarViewModel
+    @{
+        ViewBag.Title = "ViewCars";
+    }
 
-<h2>View Cars</h2>
-<div id="CustomerDetailsDiv">
-    <table class="table">
-        <tr>
-            <td>Name:</td>
-            <td><span>@Model.User.FirstName</span> <span>@Model.User.LastName</span></td>
-        </tr>
-        <tr>
-            <td>Phone-number:</td>
-            <td>@Model.User.PhoneNumber</td>
-        </tr>
-        <tr>
-            <td>Email:</td>
-            <td>@Model.User.Email</td>
-        </tr>
-        <tr>
-            <td>City:</td>
-            <td>@Model.User.City</td>
-        </tr>
-    </table>
+    <h2>View Cars</h2>
+    <div id="CustomerDetailsDiv">
+        <table class="table">
+            <tr>
+                <td>Name:</td>
+                <td><span>@Model.User.FirstName</span> <span>@Model.User.LastName</span></td>
+            </tr>
+            <tr>
+                <td>Phone-number:</td>
+                <td>@Model.User.PhoneNumber</td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td>@Model.User.Email</td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                <td>@Model.User.City</td>
+            </tr>
+        </table>
+    </div>
+
+    @Html.ActionLink("Add New Car", "AddNewCarForm", Model.User, new { @class = "btn" })
+
+    @if (!Model.Cars.Any())
+    {
+       <div>
+           <p>No cars yet!</p>
+       </div>
+<dialog open>No cars yet!</dialog>
+    }
+    else
+    {
+        <div id="CarDetailsDiv">
+            <table class="table">
+                <tr>
+                    <th>Id</th>
+                    <th>VIN</th>
+                    <th>Model</th>
+                    <th>Style</th>
+                    <th>Company</th>
+                    <th>Color</th>
+                </tr>
+                @foreach (var item in Model.Cars)
+                {
+                    if (item.UserId == Model.User.Id)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.VIN</td>
+                            <td>@item.Model</td>
+                            <td>@item.Style</td>
+                            <td>@item.Company</td>
+                            <td>@item.Color</td>
+                            <td>@Html.ActionLink(" ", "ViewServices", item, new { @class = "btn btn-danger fa-info-circle" })</td>
+                            <td>@Html.ActionLink(" ", "EditCarForm", item, new { @class = "btn btn-danger fa fa-edit" })</td>
+                            <td>@Html.ActionLink(" ", "DeleteCar", item, new { @class = "btn btn-danger fa fa-trash" })</td>
+                        </tr>
+                    }
+
+                }
+            </table>
+        </div>
+    }
+
+
 </div>
-
-@Html.ActionLink("Add New Car", "AddNewCarForm", Model.User, new { @class = "btn" })
-
-<div id="CarDetailsDiv">
-    <table class="table">
-        <tr>
-            <th>Id</th>
-            <th>VIN</th>
-            <th>Model</th>
-            <th>Style</th>
-            <th>Company</th>
-            <th>Color</th>
-        </tr>
-        @foreach (var item in Model.Cars)
-        {
-            if (item.UserId == Model.User.Id)
-            {
-    <tr>
-        <td>@item.Id</td>
-        <td>@item.VIN</td>
-        <td>@item.Model</td>
-        <td>@item.Style</td>
-        <td>@item.Company</td>
-        <td>@item.Color</td>
-        <td>@Html.ActionLink(" ", "ViewServices", item, new { @class = "btn btn-danger fa-info-circle" })</td>
-        <td>@Html.ActionLink(" ", "EditCarForm", item, new { @class = "btn btn-danger fa fa-edit" })</td>
-        <td>@Html.ActionLink(" ", "DeleteCar", item, new { @class = "btn btn-danger fa fa-trash" })</td>
-    </tr>
-            }
-
-        }
-    </table>
-</div>
-
-

@@ -54,7 +54,8 @@
     width: 187px;
     height: 60px;
 }
-  .navigation.col-md-12 {
+    /*.col-md-12*/
+  .navigation {
     top: 50px;
     background-color: #0000001f;
     padding-right: 30px;
@@ -73,6 +74,9 @@
   .social-link {
     margin-left: 37px;
 }
+  .mainImg {
+    /* margin-top: 50px; */
+}
   .mainImg{
       background-image:url('../../myImages/multi-storey-car-park-2705368_960_720.jpg');
       height:500px;
@@ -84,7 +88,7 @@
     margin-right: -100px;
 }
   .mainImg {
-    margin-top: 50px;
+    margin-top: 0px;
 }
   ul.nav.navbar-nav.fixed-top.menu-main-menu {
     margin-top: 24px;
@@ -100,7 +104,7 @@
     padding: 50px 90px 30px 90px;
     font-weight: bold;
     position: relative;
-    top: 120px;
+    top: 170px;
     left: 68px;
     font-family: -webkit-pictograph;
 }
@@ -159,18 +163,15 @@
     -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
     transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
 }
-  body{
-        overflow-y:auto
-  }
     </style>
 
 </head>
-<body style="overflow-x:auto">
+<body>
     <!--Mycode-----Navbar-top-->
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container Top-Header-Container">
             <div class="navbar-header Top-Header">
-                <div class="social-link">
+               <div class="social-link">
                     <ul>
                         <li>
                             <a href="http://www.facebook.com/reppsgarage">
@@ -271,44 +272,111 @@
                     </div>
                     <div data-vc-full-width="true" data-vc-full-width-init="true" class="vc_row wpb_row vc_row-fluid appointment" >
                     </div>
-                        <div class="container body-content" style="padding-left:0px; padding-right:0px">
-                            @RenderBody()
-                            <hr />
-                            <footer>
-                                <div class="navbar-header Top-Header">
-                                    <div class="social-link">
-                                        <ul>
-                                            <li>
-                                                <a href="http://www.facebook.com/reppsgarage">
-                                                    <i class="fa fa-facebook fa-lg">
-
-                                                    </i>
-
-                                                </a>
-
-                                            </li>
-                                            <li>
-
-                                                <a href="http://www.instagram.com/reppsgarage/">
-                                                    <i class="fa fa-instagram fa-lg">
-
-                                                    </i>
-
-                                                </a>
-
-                                            </li>
-                                        </ul>
-
-                                    </div>
-                                </div>
-                                    <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-                            </footer>
-                        </div>
+                        
                     </div>
                 </div>
 </div>
+
     </div>
-       
+    <div class="container body-content" style="padding-left:0px; padding-right:0px">
+        @RenderBody()
+        <hr />
+        <footer>
+            <div class="footerLinks col-md-3">
+                <div class="social-link">
+                    <ul>
+                        <li>
+                            <a href="http://www.facebook.com/reppsgarage">
+                                <i class="fa fa-facebook fa-lg">
+
+                                </i>
+
+                            </a>
+
+                        </li>
+                        <li>
+
+                            <a href="http://www.instagram.com/reppsgarage/">
+                                <i class="fa fa-instagram fa-lg">
+
+                                </i>
+
+                            </a>
+
+                        </li>
+                        <li>
+
+                            <a href="http://www.instagram.com/reppsgarage/">
+                                <i class="fa fa-twitter fa-lg">
+
+                                </i>
+
+                            </a>
+
+                        </li>
+                        <li>
+
+                            <a href="http://www.instagram.com/reppsgarage/">
+                                <i class="fa fa-youtube fa-lg">
+
+                                </i>
+
+                            </a>
+
+                        </li>
+                        <li>
+
+                            <a href="http://www.instagram.com/reppsgarage/">
+                                <i class="fa fa-google fa-lg">
+
+                                </i>
+
+                            </a>
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="Navlinks social-link ">
+                    <ul>
+                        @if (ViewContext.HttpContext.User.IsInRole("Admin"))
+                        {
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-14 current_page_item drop_to_right standard">
+                                @Html.ActionLink("Home", "Index", "Home", " ", new { @class = "anchorNav " })
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-14 current_page_item drop_to_right standard">
+                                @Html.ActionLink("Customers", "About", "Home", "", new { @class = "anchorNav " })
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-14 current_page_item drop_to_right standard">
+                                @Html.ActionLink("Contact", "Contact", "Home", "", new { @class = "anchorNav " })
+                            </li>
+
+                        }
+                        else
+                        {
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-14 current_page_item drop_to_right standard">
+
+                                @Html.ActionLink("Home", "Index", "Home", "", new { @class = "anchorNav " })
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-14 current_page_item drop_to_right standard">
+                                @Html.ActionLink("Contact", "Contact", "Home", "", new { @class = "anchorNav " })
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-14 current_page_item drop_to_right standard">
+                                @Html.ActionLink("Your Details", "ViewCarsUser", "Home", "", new { @class = "anchorNav " })
+                            </li>
+
+                        }
+                       
+
+                        @*<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children drop_to_right standard">
+                    <a href="http://www.reppsgarage.co.uk/services/" class="anchorNav"><span data-hover="Services">Services</span></a>*@
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-md-offset-3">
+                <p>&copy; @DateTime.Now.Year - My Zenrage Services</p>
+            </div>
+        </footer>
+    </div>
             @Scripts.Render("~/bundles/jquery")
             @Scripts.Render("~/bundles/bootstrap")
             @RenderSection("scripts", required: false)
